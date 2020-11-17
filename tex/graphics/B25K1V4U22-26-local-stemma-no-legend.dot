@@ -1,0 +1,17 @@
+digraph local_stemma {
+	margin=0;
+	node [shape=plaintext];
+	0 [label="a"];
+	1 [label="af"];
+	2 [label="b"];
+	3 [label="c"];
+	4 [label="d"];
+	5 [label="d2"];
+	6 [label="zw-a/b"];
+	0 -> 1[style=solid];
+	0 -> 2[style=solid];
+	0 -> 3[style=solid];
+	0 -> 4[style=solid];
+	0 -> 6[style=solid];
+	2 -> 6[style=solid];
+}

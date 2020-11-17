@@ -1,0 +1,14 @@
+digraph local_stemma {
+	margin=0;
+	node [shape=plaintext];
+	0 [label="a"];
+	1 [label="af"];
+	2 [label="b"];
+	3 [label="c"];
+	4 [label="d"];
+	5 [label="d2"];
+	0 -> 1[style=solid, label="1.386", fontsize=10];
+	0 -> 2[style=solid, label="2.079", fontsize=10];
+	0 -> 3[style=solid, label="2.079", fontsize=10];
+	0 -> 4[style=solid, label="4.159", fontsize=10];
+}

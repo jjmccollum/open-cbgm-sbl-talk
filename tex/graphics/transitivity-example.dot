@@ -1,0 +1,15 @@
+digraph transitivity_example {
+	a [label="a", shape=plaintext];
+	b [label="b", shape=plaintext];
+	c [label="c", shape=plaintext];
+	W1 [label="W1 (a)"];
+	W2 [label="W2 (c)"];
+	W3 [label="W3 (b)"];
+	a -> b[label="1"];
+	b -> c[label="1"];
+	a -> c[style=dashed, label=" 2"];
+	c -> W1[style=invis];
+	W1 -> W2;
+	W1 -> W3;
+	W2 -> W3[style=invis];
+}

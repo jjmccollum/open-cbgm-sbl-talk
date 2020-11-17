@@ -1,0 +1,89 @@
+digraph witness {
+	compound=true;
+	margin=0;
+	wit_1[shape=none, width=0.25, fontcolor=red, label="W1"];
+	wit_1_1[shape=box, width=2, label="b"];
+	wit_1_2[shape=box, width=2, label="a"];
+	wit_1_3[shape=box, width=2, label="b"];
+	wit_1_4[shape=box, width=2, label="b"];
+	wit_1_5[shape=box, width=2, label="b"];
+	wit_2[shape=none, width=0.25, fontcolor=blue, label="W2"];
+	wit_2_1[shape=box, width=2, label="b"];
+	wit_2_2[shape=box, width=2, label="b"];
+	wit_2_3[shape=box, width=2, label="a"];
+	wit_2_4[shape=box, width=2, label="c"];
+	wit_2_5[shape=box, width=2, label="c"];
+	stemma_wit_placeholder_top[shape=none, width=0.25, label="Local\nStemma"];
+	stemma_wit_placeholder_bottom[shape=none, width=0.25, label="Local\nStemma", style=invis];
+	subgraph cluster_passage_1_stemma {
+		node [shape=plaintext];
+		passage_1_stemma_1 [label="a", fontcolor=black];
+		passage_1_stemma_2 [label="b", fontcolor=purple];
+		passage_1_stemma_1 -> passage_1_stemma_2[style=bold, color=black];
+	}
+	subgraph cluster_passage_2_stemma {
+		node [shape=plaintext];
+		passage_2_stemma_1 [label="a", fontcolor=red];
+		passage_2_stemma_2 [label="b", fontcolor=blue];
+		passage_2_stemma_1 -> passage_2_stemma_2[style=bold, color=black];
+	}
+	subgraph cluster_passage_3_stemma {
+		node [shape=plaintext];
+		passage_3_stemma_1 [label="a", fontcolor=blue];
+		passage_3_stemma_2 [label="b", fontcolor=red];
+		passage_3_stemma_1 -> passage_3_stemma_2[style=bold, color=black];
+	}
+	subgraph cluster_passage_4_stemma {
+		node [shape=plaintext, width=0.5];
+		passage_4_stemma_1 [label="a", fontcolor=black];
+		passage_4_stemma_2 [label="b", fontcolor=red];
+		passage_4_stemma_3 [label="-", style=invis];
+		passage_4_stemma_4 [label="c", fontcolor=blue];
+		passage_4_stemma_1 -> passage_4_stemma_2[style=bold, color=black];
+		passage_4_stemma_1 -> passage_4_stemma_3[style=invis];
+		passage_4_stemma_1 -> passage_4_stemma_4[style=bold, color=black];
+	}
+	subgraph cluster_passage_5_stemma {
+		node [shape=plaintext, width=0.5];
+		passage_5_stemma_3 [label="c", fontcolor=blue];
+		passage_5_stemma_4 [label="-", style=invis];
+		passage_5_stemma_5 [label="-", style=invis];
+		passage_5_stemma_6 [label="-", style=invis];
+		passage_5_stemma_7 [label="a", fontcolor=black];
+		passage_5_stemma_8 [label="b", fontcolor=red];
+		passage_5_stemma_3 -> passage_5_stemma_4[style=invis];
+		passage_5_stemma_5 -> passage_5_stemma_6[style=invis];
+		passage_5_stemma_7 -> passage_5_stemma_8[style=bold, color=black];
+	}
+	type_label[shape=none, width=0.25, label="Type\n"];
+	type_passage_1[shape=none, width=2, label="W1=W2"];
+	type_passage_2[shape=none, width=2, label="W1>W2"];
+	type_passage_3[shape=none, width=2, label="W1<W2"];
+	type_passage_4[shape=none, width=2, label="NOREL"];
+	type_passage_5[shape=none, width=2, label="UNCL"];
+	{rank=same; wit_1, wit_1_1, wit_1_2, wit_1_3, wit_1_4, wit_1_5}
+	{rank=same; wit_2, wit_2_1, wit_2_2, wit_2_3, wit_2_4, wit_2_5}
+	{rank=same; type_label, type_passage_1, type_passage_2 type_passage_3, type_passage_4, type_passage_5}
+	wit_1 -> wit_1_1 -> wit_1_2 -> wit_1_3 -> wit_1_4 -> wit_1_5[style=invis];
+	wit_2 -> wit_2_1 -> wit_2_2 -> wit_2_3 -> wit_2_4 -> wit_2_5[style=invis];
+	type_label -> type_passage_1 -> type_passage_2 ->type_passage_3 -> type_passage_4 ->type_passage_5[style=invis];
+	wit_1 -> wit_2[style=invis];
+	wit_1_1 -> wit_2_1[style=invis];
+	wit_1_2 -> wit_2_2[style=invis];
+	wit_1_3 -> wit_2_3[style=invis];
+	wit_1_4 -> wit_2_4[style=invis];
+	wit_1_5 -> wit_2_5[style=invis];
+	wit_2 -> stemma_wit_placeholder_top[style=invis];
+	wit_2_1 -> passage_1_stemma_1[style=invis];
+	wit_2_2 -> passage_2_stemma_1[style=invis];
+	wit_2_3 -> passage_3_stemma_1[style=invis];
+	wit_2_4 -> passage_4_stemma_1[style=invis];
+	wit_2_5 -> passage_5_stemma_5[style=invis];
+	stemma_wit_placeholder_top -> stemma_wit_placeholder_bottom[style=invis];
+	stemma_wit_placeholder_bottom -> type_label[style=invis];
+	passage_1_stemma_2 -> type_passage_1[style=invis];
+	passage_2_stemma_2 -> type_passage_2[style=invis];
+	passage_3_stemma_2 -> type_passage_3[style=invis];
+	passage_4_stemma_3 -> type_passage_4[style=invis];
+	passage_5_stemma_6 -> type_passage_5[style=invis];
+}

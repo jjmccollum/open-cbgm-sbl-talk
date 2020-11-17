@@ -1,0 +1,16 @@
+digraph branch_and_bound_example {
+	margin=0;
+	root [label="A"];
+	0 [shape=plaintext, label="feasible\ncost = 3", fontsize=10, fontcolor=darkgreen];
+	1 [label="B"];
+	10 [label="C"];
+	11 [shape=plaintext, label="infeasible", fontsize=10, fontcolor=red];
+	100 [shape=plaintext, label="feasible\ncost = 2", fontsize=10, fontcolor=darkgreen];
+	101 [shape=plaintext, label="infeasible", fontsize=10, fontcolor=red];
+	root -> 0[label="yes", fontsize=10];
+	root -> 1[style=dashed, label="no", fontsize=10];
+	1 -> 10[label="yes", fontsize=10];
+	1 -> 11[style=dashed, label="no", fontsize=10];
+	10 -> 100[label="yes", fontsize=10];
+	10 -> 101[style=dashed, label="no", fontsize=10];
+}

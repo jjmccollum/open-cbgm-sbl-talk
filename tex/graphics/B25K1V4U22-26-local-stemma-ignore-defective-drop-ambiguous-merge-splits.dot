@@ -1,0 +1,24 @@
+digraph local_stemma {
+	margin=0;
+	subgraph cluster_legend {
+		passage [shape=plaintext, label="3Jo 1:4/22-26"]
+		readings [shape=plaintext, label="a: εν αληθεια περιπατουντα\laf: εν αληθεια περιπατουντο\lb: εν τη αληθεια περιπατουντα\lc: περιπατουντα εν αληθεια\ld: τη αληθεια περιπατουντα\l"];
+		passage -> readings[style=invis];
+	}
+	subgraph cluster_stemma {
+		style=invis;
+		node [shape=plaintext];
+		0 [label="a"];
+		1 [label="af"];
+		2 [label="b"];
+		3 [label="c"];
+		4 [label="d"];
+		5 [label="d2"];
+		0 -> 1[style=dashed];
+		0 -> 2[style=solid];
+		0 -> 3[style=solid];
+		0 -> 4[style=solid];
+		4 -> 5[style=dashed];
+		5 -> 4[style=dashed];
+	}
+}

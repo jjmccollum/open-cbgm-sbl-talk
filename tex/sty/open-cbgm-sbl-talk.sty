@@ -1,0 +1,71 @@
+%Declare the package that this file will produce, along with its formal name:
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{open-cbgm-sbl-talk}[2020/10/27 open-cbgm SBL Talk Style]
+%Set slide themes:
+\usetheme[progressbar=foot, sectionpage=simple]{metropolis}
+
+\usefonttheme{professionalfonts} %for mathspec support
+%Remove icons for bibliography entries:
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+%Patch error with comma placement in citations due to beamer (https://github.com/dcpurton/biblatex-sbl/issues/112):
+\AtBeginDocument{%
+  \renewbibmacro*{title}{%
+    \usebeamercolor[fg]{bibliography entry title}%
+    \ifciteseen
+      {\usebibmacro{shorttitle}}
+      {\iffieldundef{title}
+         {}
+         {\printtext[title]{%
+            \printfield[titlecase]{title}%
+            \setunit{\subtitlepunct}%
+            \printfield[titlecase]{subtitle}}%
+          \newunit
+          \printfield{titleaddon}%
+          \usebibmacro{language}%
+          \usebeamercolor[fg]{bibliography entry note}}}}}
+%Set fonts and font features:
+\RequirePackage{amsfonts}
+\RequirePackage{amsmath}
+\RequirePackage{mathspec}
+\setsansfont[BoldFont={Fira Sans}, Numbers={OldStyle}]{Fira Sans Light}
+\setmonofont[BoldFont={Fira Mono Medium}]{Fira Mono}
+\setmathsfont(Digits,Latin,Greek)[Numbers={Lining, Monospaced}, Scale=MatchLowercase]{Cochineal}
+\setmathrm[Scale=MatchLowercase]{Cochineal}
+\setmathtt{Fira Mono}
+\newfontfamily\matrixfont[Ligatures=TeX, Numbers={Lining, Monospaced}, Scale=MatchLowercase]{Cochineal}
+\newfontfamily\greekfont[Script=Greek, Ligatures=TeX, Numbers={OldStyle, Monospaced}, Scale=MatchLowercase]{Cochineal}
+%Ensure proper use of superscripts:
+\RequirePackage{xltxtra}
+%Don't add extra space after a period:
+\frenchspacing
+%Include support for URL formatting:
+\RequirePackage{url}
+%Include support for pictures:
+\RequirePackage{graphicx}
+%Include support for TikZ:
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{backgrounds}
+%Include support for multi-row cells in tabular environments:
+\RequirePackage{multirow}
+%Include support for hyphenation and punctuation:
+\RequirePackage[american]{babel}
+\babelprovide[import=el]{polutonikogreek}
+
+%Include support for smart quoting:
+\RequirePackage{csquotes}
+
+%Include support for footnote citation and citation format:
+\RequirePackage[style=sbl, citepages=omit, backend=biber]{biblatex}
+%Modify page range citation style (include full page numbers):
+\setcounter{mincomprange}{100000}
+%Add the bibliography source file:
+\addbibresource{../bib/bibliography.bib}
+
+%Finally, close the input:
+\endinput
