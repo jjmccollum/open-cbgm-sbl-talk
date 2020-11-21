@@ -7,12 +7,9 @@
 \begin{document}
 	\begin{frame}
 		\titlepage
-		\phantom{\cite{Mink04}\cite{Gurry17}\cite{WG17}\cite{Edmondson19}\cite{EdmondsonCBGM}\cite{CCeHCBGM}}%Hide initial full-text citations here
+		\phantom{\cite{Mink04}\cite{Gurry17}\cite{WG17}\cite{Edmondson19}\cite{EdmondsonCBGM}\cite{PerathonerCBGM}\cite{McCollumCBGM}}%Hide initial full-text citations here
 	\end{frame}
 	\begin{frame}{Customizable, Standard-compliant Input}
-		\begin{itemize}
-			\item Database is populated from a collation file in TEI XML format
-		\end{itemize}
 		\begin{columns}
 			\begin{column}{0.4\textwidth}
 				\includegraphics[scale=0.6667]{../graphics/listwit-xml.png}
@@ -22,21 +19,27 @@
 				\includegraphics[scale=0.6667]{../graphics/app-xml.png}
 			\end{column}
 			\begin{column}{0.55\textwidth}
-				\footnotesize
-				\begin{tabular}{l|l|l}
-					XML & Object & DB Table\\
-					\hline
-					\hline
-					\texttt{witness} & Witness & \texttt{WITNESSES}\\
-					\hline
-					\texttt{app} & Variant passage & \texttt{VARIATION\_}\\
-					 & & \texttt{UNITS}\\
-					 \hline
-					\texttt{rdg} & Variant reading & \texttt{READINGS}\\
-					\hline
-					\texttt{graph} & Local stemma & \texttt{READING\_}\\
-					 & & \texttt{RELATIONS}
-				\end{tabular}
+				\begin{itemize}
+					\item Database is populated from a collation file in TEI XML format
+					\item With a SQLite database, the entire process can be done locally
+				\end{itemize}
+				\begin{table}
+					\footnotesize
+					\begin{tabular}{l|l|l}
+						XML & Object & DB Table\\
+						\hline
+						\hline
+						\texttt{witness} & Witness & \texttt{WITNESSES}\\
+						\hline
+						\texttt{app} & Variant passage & \texttt{VARIATION\_}\\
+						 & & \texttt{UNITS}\\
+						 \hline
+						\texttt{rdg} & Variant reading & \texttt{READINGS}\\
+						\hline
+						\texttt{graph} & Local stemma & \texttt{READING\_}\\
+						 & & \texttt{RELATIONS}
+					\end{tabular}
+				\end{table}
 			\end{column}
 		\end{columns}
 	\end{frame}
@@ -99,7 +102,8 @@
 			\begin{column}{0.5\textwidth}
 				\begin{align*}
 					\mathtt{norel} &= [0,0,0,1,0]\\
-					\mathtt{uncl} &= [0,0,0,0,1]
+					\mathtt{uncl} &= [0,0,0,0,1]\\
+					\mathtt{expl} &= [1,0,1,0,0]^{\color{orange}\star}
 				\end{align*}
 			\end{column}
 		\end{columns}
@@ -146,8 +150,8 @@
 			\begin{column}{0.55\textwidth}
 				\begin{itemize}
 					\item In ``classic'' rules, cost = $0$ for agreement, $1$ for disagreement
+					\item ``Agreement'': same reading or readings connected only by dashed edges
 					\item Uniform weight for all passages
-					\item Local stemma edges are assumed to have weight $1$ (or weight $0$ if collapsed)
 				\end{itemize}
 				\includegraphics[width=\textwidth]{../graphics/B25K1V13U24-26-local-stemma.pdf}
 			\end{column}
@@ -196,7 +200,6 @@
 					\item For a witness with $n$ potential ancestors, evaluating all of its $2^n$ possible substemmata by brute force would be prohibitive
 					\item The \emph{branch-and-bound} heuristic (pictured left) finds all minimum-cost substemmata quickly in practice
 					\item Easily adpated to find all substemmata within a given cost
-					\item Also works for ``classic'' rules (but costs are assumed to be additive)
 				\end{itemize}
 			\end{column}
 		\end{columns}
