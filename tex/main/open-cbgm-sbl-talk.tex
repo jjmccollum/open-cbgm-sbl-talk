@@ -7,7 +7,7 @@
 \begin{document}
 	\begin{frame}
 		\titlepage
-		\phantom{\cite{Mink04}\cite{Gurry17}\cite{WG17}\cite{Edmondson19}\cite{EdmondsonCBGM}\cite{PerathonerCBGM}\cite{McCollumCBGM}}%Hide initial full-text citations here
+		\phantom{\cite{Mink04}\cite{Gurry17}\cite{WG17}\cite{Edmondson19}\cite{EdmondsonCBGM}\cite{PerathonerCBGM}\cite{McCollumCBGM}\cite{McCollum19}\cite{FloodTendon}\cite{FloodApparatusExplorer}}%Hide initial full-text citations here
 	\end{frame}
 	\begin{frame}{Customizable, Standard-compliant Input}
 		\begin{columns}
@@ -94,7 +94,7 @@
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
 				\begin{align*}
-					\mathtt{agree} &= [1,0,0,0,0]\\
+					\mathtt{agree} &= [1,0,0,0,0]^{\color{orange}\star}\\
 					\mathtt{prior} &= [0,1,0,0,0]\\
 					\mathtt{posterior} &= [0,0,1,0,0]
 				\end{align*}
@@ -137,21 +137,21 @@
 			\end{column}
 		\end{columns}
 	\end{frame}
-	\begin{frame}{Genealogical Relationship Costs}
-		\begin{columns}
-			\begin{column}{0.4\textwidth}
-				\includegraphics[scale=0.6667]{../graphics/B25K1V13U24-26-local-stemma-xml.png}
-			\end{column}
-			\begin{column}{0.55\textwidth}
-				\begin{itemize}
-					\item In ``classic'' rules, cost = $0$ for agreement, $1$ for disagreement
-					\item ``Agreement'': same reading or readings connected only by dashed edges
-					\item Uniform weight for all passages
-				\end{itemize}
-				\includegraphics[width=\textwidth]{../graphics/B25K1V13U24-26-local-stemma.pdf}
-			\end{column}
-		\end{columns}
-	\end{frame}
+%	\begin{frame}{Genealogical Relationship Costs}
+%		\begin{columns}
+%			\begin{column}{0.4\textwidth}
+%				\includegraphics[scale=0.6667]{../graphics/B25K1V13U24-26-local-stemma-xml.png}
+%			\end{column}
+%			\begin{column}{0.55\textwidth}
+%				\begin{itemize}
+%					\item In ``classic'' rules, cost = $0$ for agreement, $1$ for disagreement
+%					\item ``Agreement'': same reading or readings connected only by dashed edges
+%					\item Uniform weight for all passages
+%				\end{itemize}
+%				\includegraphics[width=\textwidth]{../graphics/B25K1V13U24-26-local-stemma.pdf}
+%			\end{column}
+%		\end{columns}
+%	\end{frame}
 	\begin{frame}{Genealogical Relationship Costs}
 		\begin{columns}
 			\begin{column}{0.4\textwidth}
@@ -161,7 +161,7 @@
 				\begin{itemize}
 					\item In \texttt{open-cbgm}, cost = shortest path length
 					\item Edge weights in \texttt{label} element 
-					\item e.g., scribal change log-likelihood $w = -\log p$
+					\item Example: scribal change log-likelihood $w = -\log p$
 				\end{itemize}
 				\includegraphics[width=\textwidth]{../graphics/B25K1V13U24-26-local-stemma-weighted.pdf}
 			\end{column}
