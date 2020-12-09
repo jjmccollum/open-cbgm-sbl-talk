@@ -1,0 +1,77 @@
+digraph textual_flow_diagram {
+	subgraph cluster_legend {
+		label [shape=plaintext, label="3Jo 1:13/24-26\nCon = 10"];
+	}
+	subgraph cluster_plot {
+		style=invis;
+		node [shape=ellipse];
+		subgraph cluster_a {
+			labeljust="c";
+			label="a";
+			style=solid;
+			0 [label="A"];
+		}
+		subgraph cluster_b {
+			labeljust="c";
+			label="b";
+			style=solid;
+			39 [label="326"];
+			80 [label="1448"];
+			106 [label="1845"];
+		}
+		subgraph cluster_c {
+			labeljust="c";
+			label="c";
+			style=solid;
+			9 [label="025"];
+			57 [label="617"];
+			88 [label="1609"];
+		}
+		subgraph cluster_cf {
+			labeljust="c";
+			label="cf";
+			style=solid;
+			52 [label="467"];
+		}
+		subgraph cluster_d {
+			labeljust="c";
+			label="d";
+			style=solid;
+			68 [label="945"];
+			102 [label="1837"];
+		}
+		subgraph cluster_e {
+			labeljust="c";
+			label="e";
+			style=solid;
+			13 [label="0142"];
+		}
+		subgraph cluster_f {
+			labeljust="c";
+			label="f";
+			style=solid;
+			22 [label="61"];
+		}
+		9 -> 13 [color=blue];
+		0 -> 13 [label="5", fontsize=10, color=blue];
+		106 -> 13 [label="5", fontsize=10, color=blue];
+		39 -> 22 [color=blue];
+		102 -> 22 [label="2", fontsize=10, color=blue];
+		0 -> 22 [label="4", fontsize=10, color=blue];
+		57 -> 22 [label="4", fontsize=10, color=blue];
+		13 -> 22 [label="8", fontsize=10, color=blue];
+		52 -> 22 [label="10", fontsize=10, color=blue];
+		88 -> 52 [color=blue];
+		13 -> 52 [label="3", fontsize=10, color=blue];
+		80 -> 52 [label="5", fontsize=10, color=blue];
+		68 -> 52 [label="6", fontsize=10, color=blue];
+		0 -> 52 [label="9", fontsize=10, color=blue];
+		0 -> 57 [color=blue];
+		9 -> 68 [color=blue];
+		80 -> 68 [label="2", fontsize=10, color=blue];
+		13 -> 68 [label="4", fontsize=10, color=blue];
+		0 -> 68 [label="5", fontsize=10, color=blue];
+		0 -> 106 [color=blue];
+		57 -> 106 [label="2", fontsize=10, color=blue];
+	}
+}
