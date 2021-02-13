@@ -3,7 +3,7 @@ Resources and Beamer presentation for 2020 SBL Annual Meeting talk "The `open-cb
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
-## About This Document
+## About This Project
 
 This work is licensed under a
 [Creative Commons Attribution 4.0 International License][cc-by].
